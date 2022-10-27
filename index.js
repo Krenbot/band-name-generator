@@ -19,19 +19,24 @@ inquirer.prompt([
     }
 ])
     .then((answers) => {
-        const bandName = generateSlug(answers.length, { format: "title" })
+        console.log(answers)
 
-        if (answers.animationName === 'pulse') {
+        //Below line is an example of object deconstruction
+        const {length, animationName} = answers
+
+        const bandName = generateSlug(length, { format: "title" })
+
+        if (animationName === 'pulse') {
             chalkAnimation.pulse(bandName)
-        } else if (answers.animationName === 'rainbow') {
+        } else if (animationName === 'rainbow') {
             chalkAnimation.rainbow(bandName)
-        } else if (answers.animationName === 'glitch') {
+        } else if (animationName === 'glitch') {
             chalkAnimation.glitch(bandName)
-        } else if (answers.animationName === 'radar') {
+        } else if (animationName === 'radar') {
             chalkAnimation.radar(bandName)
-        } else if (answers.animationName === 'neon') {
+        } else if (animationName === 'neon') {
             chalkAnimation.neon(bandName)
-        } else if (answers.animationName === 'karaoke') {
+        } else if (animationName === 'karaoke') {
             chalkAnimation.karaoke(bandName)
         }
 
